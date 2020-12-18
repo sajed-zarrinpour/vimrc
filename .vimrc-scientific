@@ -1,0 +1,525 @@
+" General Settings
+
+" line number
+set number
+
+" tabing
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+filetype on
+filetype plugin on
+filetype plugin indent on
+set autoindent
+set textwidth=80
+
+" cruser position
+set ruler 
+set number 
+set relativenumber
+set cursorline
+
+" undo settings
+set undofile
+set undodir="$home/.VIM_UNDO_FILES"
+
+" show mode
+set showmode 
+
+" Plugin manager settings 
+set nocompatible
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" Plugin list
+call vundle#begin()
+
+" vim structural plugins
+"--------------------------------------
+" plugin manager
+Plugin 'VundleVim/Vundle.vim'
+" file manager
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'neoclide/coc.nvim'
+Plugin 'thinca/vim-quickrun'
+" themes
+"-----------------------------------
+Plugin 'mhartington/oceanic-next'
+Plugin 'szorfein/fromthehell.vim'
+Plugin 'ntk148v/vim-horizon'
+Plugin 'yous/vim-open-color'
+Plugin 'kadekillary/subtle_solo'
+Plugin 'edouardp/myob-colorscheme'
+Plugin 'nightsense/strawberry'
+Plugin 'nightsense/wonka'
+Plugin 'rakr/vim-one'
+Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'Rigellute/shades-of-purple.vim'
+Plugin 'morhetz/gruvbox'
+" airline
+"---------------------------------
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" filetype icons
+"---------------------------------
+Plugin 'ryanoasis/vim-devicons'
+
+" font management only for GUI
+" usage, type :FontList
+" Plugin 'takac/vim-fontmanager'
+
+" language tool
+"---------------------------------
+Plugin 'dpelle/vim-languagetool'
+
+" utilities
+"-----------------------------------
+" show indent with vertical lines
+Plugin 'Yggdroot/indentLine'
+
+" csv
+Plugin 'chrisbra/csv.vim'
+
+" auto compelete qoutes, parens, brackets etc.
+Plugin 'Raimondi/delimitMate'
+
+" highlight match the enclosing HTML/XML tags
+Plugin 'valloric/MatchTagAlways'
+
+" matching parentheses, brackets, quotes, XML tags etc. 
+Plugin 'tpope/vim-surround'
+
+" file-type sensible comments, check : https://vimawesome.com/plugin/tcomment
+Plugin 'tomtom/tcomment_vim'
+
+" highlights the color you type with the color itself
+Plugin 'gorodinskiy/vim-coloresque'
+
+" multi line editing
+" see: https://vimawesome.com/plugin/vim-multiple-cursors
+Plugin 'terryma/vim-multiple-cursors'
+" see : https://github.com/mg979/vim-visual-multi"
+Plugin 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" Interpret a file by function and cache file automatically
+Plugin 'marcweber/vim-addon-mw-utils'
+
+" some utility functions 
+Plugin 'tomtom/tlib_vim'
+
+" search
+"---------------------------------
+" fuzzy finder, check : https://vimawesome.com/plugin/fzf
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+
+" ack file search
+" usage :Ack [options] {pattern} [{directories}]
+Plugin 'mileszs/ack.vim'
+
+" grep like search in file :Grep <word>
+Plugin 'yegappan/grep'
+
+" yet another one
+Plugin 'shougo/unite.vim'
+
+
+" auto compleration
+"---------------------------------
+"Plugin 'valloric/youcompleteme'
+Plugin 'neoclide/coc.nvim'
+" git
+"---------------------------------
+Plugin 'tpope/vim-fugitive'
+
+" command execution
+"---------------------------------
+Plugin 'Shougo/vimproc.vim'
+
+
+" history management of yank command 
+"---------------------------------
+Plugin 'YankRing.vim'
+
+
+" the undo history visualizer
+"---------------------------------
+Plugin 'mbbill/undotree'
+
+" handy text style tables, check: https://github.com/dhruvasagar/vim-table-mode
+"---------------------------------
+Plugin 'dhruvasagar/vim-table-mode'
+
+" an Indicator of whether table mode is on/off
+"---------------------------------
+Plugin 'retorillo/airline-tablemode.vim'
+
+"terminal window wrapper doc at : https://vimawesome.com/plugin/conque-shell
+"---------------------------------
+Plugin 'Conque-Shell'
+
+
+" commenting
+"---------------------------------
+Plugin 'scrooloose/nerdcommenter'
+
+" vim task manager 
+"---------------------------------
+Plugin 'irrationalistic/vim-tasks'
+
+"to manage the buffers :
+"Plugin 'fholgado/minibufexpl.vim'
+
+
+" snippets
+"-----------------------------------
+" textual snippets, check : https://vimawesome.com/plugin/vim-snipmate-mine
+Plugin 'garbas/vim-snipmate'
+
+" snipmate default snippets
+Plugin 'honza/vim-snippets'
+
+" a script library
+Plugin 'L9'
+
+Plugin 'SirVer/ultisnips'
+
+
+" languange support
+"--------------------------------
+
+" C/ C++
+
+" support
+Plugin 'WolfgangMehner/c-support'
+
+" highlighter
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+" STL
+Plugin 'd0f/vim-cppstl'
+
+" linter
+Plugin 'funorpain/vim-cpplint'
+
+
+"switching between .h and .cpp files
+Plugin 'A.vim'
+
+" class outline viewer
+Plugin 'majutsushi/tagbar'
+
+" source code browser
+Plugin 'taglist.vim'
+
+" Jump to Defenition of variables, classes etc.
+Plugin 'misterbuckley/vim-definitive'
+
+" syntax checking, docs at : https://vimawesome.com/plugin/syntastic
+Plugin 'scrooloose/syntastic'
+
+" LaTeX integration
+"----------------------------
+" A Vim Plugin for Lively Previewing LaTeX PDF Output
+Plugin 'lervag/vimtex'
+
+call vundle#end()
+
+
+" settings and customizations
+"-----------------------------------------------------------
+
+set incsearch                  " do incremental searching
+set hlsearch                   " highlight search term
+set ignorecase                 " case insensitive search
+set showmatch                  " show matching parenthesis
+syntax on                      " enable syntax highlighting
+
+" nerd tree
+"---------------------------------
+map <C-f>     :NERDTreeToggle<CR>
+let NERDRreeShowHidden=1
+
+" key remaps
+"---------------------------------
+ noremap p P
+ noremap P p
+ noremap o O
+ noremap O o
+ noremap J 5j
+ noremap K 5k
+ noremap H ^
+ noremap L g_
+
+ " making ; do the work of : saving a keystroke 
+ nnoremap ; :
+ vnoremap <C-/> :Tcomment<CR>
+ map <esc> :noh<CR>
+
+
+" WINDOW MANAGEMENT
+"  press <shift>+'|'  for <vsplit> 
+"
+"  '-' for <split>
+"
+"  <ctrl>+'c' for closing the buffer
+"
+"  <tab> for moving forward
+"
+"  <shift>+<tab> for backward
+"
+map <Bar>   <C-W>v<C-W><Right>
+map -       <C-W>s<C-W><Down>
+map <Tab>   <C-W>w
+map <Esc>[Z <C-W>
+map <C-c>   <C-W>c
+
+
+
+" using ctrl + T to enter terminal mode
+noremap <C-t> :terminal<CR>
+inoremap <C-t> <Esc>:terminal<CR>
+
+" CTRL + P fuzzy search    
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+
+" Theme configuration 
+
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+syntax enable
+
+" default color schema 
+colorscheme evening
+
+" highlight the currnet line number
+hi CursorLineNR guifg=#ffffff
+
+" highlight bad words in red
+hi SpellBad Guibg=red guifg=#ffffff
+
+
+" airline 
+let g:airline#extensions#tabline#enabled = 1
+set hidden
+let g:airline#extensions#tabline#namemod =':t'
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+
+
+" font configs
+set encoding=utf8
+
+" indentLine configuration
+let g:indentLine_char = '▸'
+
+" substituiting invisible characters
+set list
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+set listchars=tab:→\ ,space:·
+"Invisible character colors 
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+
+" fzf config
+map <C-p> :FZF<CR>
+tmap <c-p>  <C-\><C-n>:FZF<CR>
+map <C-a>a :Ag<CR>
+tmap <C-a>a <C-\><C-n>:Ag<CR>
+map <C-h>h :History<CR>
+tmap <C-h>h <C-\><C-n>:History<CR>
+map <C-l>l :Lines<CR>
+
+" YCM Settings
+"-------------------------------
+
+"enabling auto compeletion
+"filetype plugin on
+
+" this has to be the path to the python (2) interpreter that YCM were compiled with
+"let g:ycm_server_python_interpreter = 'python2'
+
+" set diagnostics display features off, since it would dissable the syntax checker plugin, syntastic for C like files.
+"let g:ycm_show_diagnostics_ui = 0
+
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+" C/C++
+au FileType c setl ofu=ccomplete#CompleteCpp
+
+" FreeFem++ 
+au BufNewFile,BufRead *.edp			setf edp
+
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+"set the color of compeletation pop up menu
+
+" forground
+":highlight Pmenu guifg=yellow gui=bold
+
+" background
+:highlight Pmenu ctermbg=gray guibg=gray guifg=black
+
+"set the behavior of omni compeletation to narrow down the query
+:set completeopt+=longest
+
+
+" TAB behaviours
+"--------------------------------
+function! CleverTab()
+  if pumvisible()
+    return "\<C-N>"
+  endif
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+    return "\<Tab>"
+  elseif exists('&omnifunc') && &omnifunc != ''
+    return "\<C-X>\<C-O>"
+  else
+    return "\<C-N>"
+  endif
+endfunction
+
+"tab compeletation behavior
+inoremap <Tab> <C-R>=CleverTab()<CR>
+"-------------------------------------
+" Ulti snippets settings
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="`"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+"to enable the tools for cmake 
+let  g:C_UseTool_cmake    = 'yes'
+
+"hot key customization for c-support plugin
+"save and compile
+noremap   \rc        :rc<CR>
+inoremap   \rc   <C-C>:rc<CR>
+
+"key bind for toggling the class viewer
+nmap <F8> :TagbarToggle<CR>
+nnoremap <F12> :UndotreeToggle<cr>
+
+" table mode settings
+" Demo on : https://www.youtube.com/watch?v=9lVQ0VJY3ps
+" Doc  on : https://vimawesome.com/plugin/table-mode
+let g:table_mode_corner='|'
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
+
+" syntax checikng settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{kite#statusline()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['python', 'python3']
+let g:syntastic_c_checkers = ['clang_check', 'clang_tidy', 'gcc']
+let g:syntastic_cpp_checkers = ['clang_check', 'clang_tidy', 'gcc', 'g++']
+
+" nerd commenter
+"-----------------------------------------------
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+
+
+"Enabling image preview in vim,
+"I have 3 cli-tool for that, imgcat, viu and fim.
+"fim is the best but I prefered to use viu
+:autocmd BufEnter *.png,*.jpeg,*.jpg,*gif exec "! ~/Scripts/viu ".expand("%") | :bw
+
+
+" this function will take shell commands and executes them and prints the result
+" on the screen. Since another ellegant way to accessing terminal in vim through
+" :terminal is available, this function is here to be used in its proceeding
+" command: compiling and running cpp source files.
+
+set autochdir
+"
+" note :
+" use F5 key to compile and F6 key to run.
+autocmd FileType cpp map <F5> :silent :w <bar> :execute 'silent !g++ -Wall -g %:p -o out &' <bar> redraw! <CR>
+autocmd FileType cpp map <F6> :term ./out<CR>
+
+
+" bindings for runing python
+" TODO:// make this script work for the version of the python that matches the
+" F5 to run interactive python code
+autocmd FileType python nnoremap <silent> <F5> :term python %:p<CR>
+autocmd FileType python vnoremap <silent> <F5> :<C-u>:term python %:p<CR>
+
+
+" latex related settings
+"------------------------
+" read help by :h vmtex
+" default important keybinds
+" \ll compile
+" \lo output of the compile
+" \lx reload the plugin
+" \ls check status
+filetype plugin on
+let g:tex_flavor='latex'
+let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode --shell-escape $*'
+" make syntastic off for latex files, it is kinda annoying
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["tex"] }
+" languagetool integration
+"-------------------------
+let g:languagetool_jar='~/languagetool/languagetool-standalone/target/LanguageTool-5.2-SNAPSHOT/LanguageTool-5.2-SNAPSHOT/languagetool-commandline.jar'
+let g:languagetool_lang='en-US'
+let g:languagetool_win_height=10
+
+"===============================TIPS====================================
+"use command "+yy to copy current line into the system clipboard from vim
+"and command "+p to paste the content of the clipboard into vim
+"watch :https://www.youtube.com/watch?v=XA2WjJbmmoM for more tips
+"=======================================================================
+"
+" automatically reload vimrc whenever it save changes
+autocmd! BufWritePost .vimrc source %
+
+" I dont recommend this, but if you want to copy and paste from outside of the
+" vim just like other editors uncomment the following line
+"let clipboard=unnamed
+
+
